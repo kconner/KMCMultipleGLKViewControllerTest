@@ -1,5 +1,5 @@
 //
-//  KMCViewController.h
+//  KMCContainerViewController.h
 //  KMCMultipleGLKViewControllerTest
 //
 //  Created by Kevin Conner on 5/5/13.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GLKit/GLKit.h>
 
-@interface KMCViewController : GLKViewController
+@interface KMCContainerViewController : UIViewController
 
 @end

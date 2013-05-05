@@ -18,11 +18,11 @@
 		0EF047AF1736C67C00C0602B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EF047AE1736C67C00C0602B /* Default.png */; };
 		0EF047B11736C67C00C0602B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EF047B01736C67C00C0602B /* Default@2x.png */; };
 		0EF047B31736C67C00C0602B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EF047B21736C67C00C0602B /* Default-568h@2x.png */; };
-		0EF047B61736C67C00C0602B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF047B41736C67C00C0602B /* MainStoryboard_iPhone.storyboard */; };
-		0EF047B91736C67C00C0602B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF047B71736C67C00C0602B /* MainStoryboard_iPad.storyboard */; };
 		0EF047BB1736C67C00C0602B /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 0EF047BA1736C67C00C0602B /* Shader.fsh */; };
 		0EF047BD1736C67C00C0602B /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 0EF047BC1736C67C00C0602B /* Shader.vsh */; };
-		0EF047C01736C67C00C0602B /* KMCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF047BF1736C67C00C0602B /* KMCViewController.m */; };
+		0EF047C01736C67C00C0602B /* KMCOpenGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF047BF1736C67C00C0602B /* KMCOpenGLViewController.m */; };
+		0EF047C81736C79E00C0602B /* KMCContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF047C71736C79E00C0602B /* KMCContainerViewController.m */; };
+		0EF047CC1736C8C700C0602B /* KMCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF047CB1736C8C700C0602B /* KMCRootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,12 +41,14 @@
 		0EF047AE1736C67C00C0602B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0EF047B01736C67C00C0602B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0EF047B21736C67C00C0602B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		0EF047B51736C67C00C0602B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		0EF047B81736C67C00C0602B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		0EF047BA1736C67C00C0602B /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
 		0EF047BC1736C67C00C0602B /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
-		0EF047BE1736C67C00C0602B /* KMCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMCViewController.h; sourceTree = "<group>"; };
-		0EF047BF1736C67C00C0602B /* KMCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMCViewController.m; sourceTree = "<group>"; };
+		0EF047BE1736C67C00C0602B /* KMCOpenGLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMCOpenGLViewController.h; sourceTree = "<group>"; };
+		0EF047BF1736C67C00C0602B /* KMCOpenGLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMCOpenGLViewController.m; sourceTree = "<group>"; };
+		0EF047C61736C79E00C0602B /* KMCContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCContainerViewController.h; sourceTree = "<group>"; };
+		0EF047C71736C79E00C0602B /* KMCContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCContainerViewController.m; sourceTree = "<group>"; };
+		0EF047CA1736C8C700C0602B /* KMCRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCRootViewController.h; sourceTree = "<group>"; };
+		0EF047CB1736C8C700C0602B /* KMCRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCRootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +101,14 @@
 			children = (
 				0EF047AB1736C67C00C0602B /* KMCAppDelegate.h */,
 				0EF047AC1736C67C00C0602B /* KMCAppDelegate.m */,
-				0EF047B41736C67C00C0602B /* MainStoryboard_iPhone.storyboard */,
-				0EF047B71736C67C00C0602B /* MainStoryboard_iPad.storyboard */,
 				0EF047BA1736C67C00C0602B /* Shader.fsh */,
 				0EF047BC1736C67C00C0602B /* Shader.vsh */,
-				0EF047BE1736C67C00C0602B /* KMCViewController.h */,
-				0EF047BF1736C67C00C0602B /* KMCViewController.m */,
+				0EF047BE1736C67C00C0602B /* KMCOpenGLViewController.h */,
+				0EF047BF1736C67C00C0602B /* KMCOpenGLViewController.m */,
+				0EF047CA1736C8C700C0602B /* KMCRootViewController.h */,
+				0EF047CB1736C8C700C0602B /* KMCRootViewController.m */,
+				0EF047C61736C79E00C0602B /* KMCContainerViewController.h */,
+				0EF047C71736C79E00C0602B /* KMCContainerViewController.m */,
 				0EF047A31736C67C00C0602B /* Supporting Files */,
 			);
 			path = KMCMultipleGLKViewControllerTest;
@@ -180,8 +184,6 @@
 				0EF047AF1736C67C00C0602B /* Default.png in Resources */,
 				0EF047B11736C67C00C0602B /* Default@2x.png in Resources */,
 				0EF047B31736C67C00C0602B /* Default-568h@2x.png in Resources */,
-				0EF047B61736C67C00C0602B /* MainStoryboard_iPhone.storyboard in Resources */,
-				0EF047B91736C67C00C0602B /* MainStoryboard_iPad.storyboard in Resources */,
 				0EF047BB1736C67C00C0602B /* Shader.fsh in Resources */,
 				0EF047BD1736C67C00C0602B /* Shader.vsh in Resources */,
 			);
@@ -196,7 +198,9 @@
 			files = (
 				0EF047A91736C67C00C0602B /* main.m in Sources */,
 				0EF047AD1736C67C00C0602B /* KMCAppDelegate.m in Sources */,
-				0EF047C01736C67C00C0602B /* KMCViewController.m in Sources */,
+				0EF047C01736C67C00C0602B /* KMCOpenGLViewController.m in Sources */,
+				0EF047C81736C79E00C0602B /* KMCContainerViewController.m in Sources */,
+				0EF047CC1736C8C700C0602B /* KMCRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,22 +213,6 @@
 				0EF047A61736C67C00C0602B /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		0EF047B41736C67C00C0602B /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0EF047B51736C67C00C0602B /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		0EF047B71736C67C00C0602B /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0EF047B81736C67C00C0602B /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
