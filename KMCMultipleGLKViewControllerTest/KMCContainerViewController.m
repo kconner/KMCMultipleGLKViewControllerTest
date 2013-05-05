@@ -9,6 +9,13 @@
 #import "KMCContainerViewController.h"
 #import "KMCOpenGLViewController.h"
 
+@interface KMCContainerViewController ()
+
+@property (nonatomic, strong) KMCOpenGLViewController *leftViewController;
+@property (nonatomic, strong) KMCOpenGLViewController *rightViewController;
+
+@end
+
 @implementation KMCContainerViewController
 
 #pragma mark - Actions
@@ -31,37 +38,44 @@
 {
     [super viewDidLoad];
 
+    self.leftViewController = [[KMCOpenGLViewController alloc] init];
+    self.rightViewController = [[KMCOpenGLViewController alloc] init];
+
+    [self addChildViewController:self.leftViewController]; // calls willMoveToSuperview:self
+    [self.view addSubview:self.leftViewController.view];
+    [self.leftViewController didMoveToParentViewController:self];
+
+    [self addChildViewController:self.rightViewController]; // calls willMoveToSuperview:self
+    [self.view addSubview:self.rightViewController.view];
+    [self.rightViewController didMoveToParentViewController:self];
+
+    [self.leftViewController.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapLeft:)]];
+    [self.rightViewController.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapRight:)]];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+
     CGRect bounds = self.view.bounds;
     CGRect leftFrame, rightFrame;
     CGRectDivide(bounds, &leftFrame, &rightFrame, floorf(bounds.size.width / 2), CGRectMinXEdge);
-
-    KMCOpenGLViewController *leftViewController = [[KMCOpenGLViewController alloc] init];
-    leftViewController.view.frame = leftFrame;
-    KMCOpenGLViewController *rightViewController = [[KMCOpenGLViewController alloc] init];
-    rightViewController.view.frame = rightFrame;
-
-    [self addChildViewController:leftViewController]; // calls willMoveToSuperview:self
-    [self.view addSubview:leftViewController.view];
-    [rightViewController didMoveToParentViewController:self];
-
-    [self addChildViewController:rightViewController]; // calls willMoveToSuperview:self
-    [self.view addSubview:rightViewController.view];
-    [rightViewController didMoveToParentViewController:self];
-
-    [leftViewController.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapLeft:)]];
-    [rightViewController.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapRight:)]];
+    self.leftViewController.view.frame = leftFrame;
+    self.rightViewController.view.frame = rightFrame;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
 
-    NSArray *children = self.childViewControllers.copy;
-    for (UIViewController *child in children) {
+    for (UIViewController *child in @[ self.leftViewController, self.rightViewController]) {
         [child willMoveToParentViewController:nil];
         [child.view removeFromSuperview];
         [child removeFromParentViewController]; // calls didMoveToSuperview:nil
     }
+
+    self.leftViewController = nil;
+    self.rightViewController = nil;
 }
 
 @end
